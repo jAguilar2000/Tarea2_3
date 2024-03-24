@@ -38,8 +38,7 @@ public class CustomAdapter extends ArrayAdapter<SetData> {
 
         final SetData setDataNew = setData.get(position);
         textViewDescripcion.setText(setDataNew.getDescripcion());
-        Picasso.get().load(setDataNew.getFoto()).into(imageViewList);
-
+        imageViewList.setImageBitmap(setDataNew.getFotoBitmap());
         return  view;
     }
 }

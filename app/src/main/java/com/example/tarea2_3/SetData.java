@@ -1,17 +1,22 @@
 package com.example.tarea2_3;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+
 public class SetData {
-    String descripcion, foto;
-    SetData(String descripcion, String foto){
+    String descripcion;
+    Bitmap fotoBitmap;
+
+    SetData(String descripcion, Bitmap fotoBitmap){
         this.descripcion = descripcion;
-        this.foto = foto;
+        this.fotoBitmap = fotoBitmap;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public String getFoto() {
-        return foto;
+    public Bitmap getFotoBitmap() {
+        return fotoBitmap;
     }
 }

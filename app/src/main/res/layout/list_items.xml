@@ -22,11 +22,18 @@
             android:paddingTop="5dp"
             android:paddingBottom="10dp">
 
+            <Button
+                android:id="@+id/btnRegresar_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Regresar" />
+
             <ImageView
                 android:id="@+id/listImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
+
                 android:src="@drawable/no_image"
                 android:contentDescription="@string/title_listitems" />
 
@@ -38,6 +45,7 @@
                 android:padding="15dp"
                 android:text="@string/description"
                 />
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

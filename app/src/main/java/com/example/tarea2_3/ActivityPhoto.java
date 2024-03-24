@@ -14,11 +14,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 import Configuracion.SQLiteConexion;
 import Configuracion.Transacciones;
@@ -26,7 +29,7 @@ import Configuracion.Transacciones;
 public class ActivityPhoto extends AppCompatActivity {
     static final int peticion_camara = 100;
     static final int peticion_foto = 102;
-    String FotoPath;
+    String FotoPath, imagenBase64;
     ImageView imageView;
     EditText textDescripcion, textFotografia;
     Button btntakefoto, btnRegresar, btnGuardar;
@@ -68,11 +71,10 @@ public class ActivityPhoto extends AppCompatActivity {
         SQLiteDatabase db = conexion.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put(Transacciones.descripcion, textDescripcion.getText().toString());
-        valores.put(Transacciones.fotografia, "HOLA");
+        valores.put(Transacciones.fotografia, imagenBase64);
+
         Long resultado = db.insert(Transacciones.TableFoto, Transacciones.id, valores);
-
         Toast.makeText(getApplicationContext(), "Registro Ingresado con exito " + resultado.toString(), Toast.LENGTH_LONG).show();
-
         db.close();
     }
 
@@ -116,6 +118,11 @@ public class ActivityPhoto extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imagen = (Bitmap) extras.get("data");
             imageView.setImageBitmap(imagen);
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            imagen.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            imagenBase64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
         }
     }
 }
