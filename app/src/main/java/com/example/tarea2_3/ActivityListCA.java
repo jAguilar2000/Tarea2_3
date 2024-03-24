@@ -44,8 +44,8 @@ public class ActivityListCA extends AppCompatActivity {
         Cursor cursor = db.rawQuery(Transacciones.SelectAllFotos, null);
 
         while(cursor.moveToNext()){
-            VerImagen(cursor.getString(1));
-            setData.add(new SetData(cursor.getString(2), bitmapGlobal));
+            Bitmap fotoBitmap = VerImagen(cursor.getString(1));
+            setData.add(new SetData(cursor.getString(2), fotoBitmap));
         }
         CustomAdapter customAdapter = new CustomAdapter(this, R.layout.list_items, setData);
 
@@ -61,8 +61,9 @@ public class ActivityListCA extends AppCompatActivity {
         });
     }
 
-    private void VerImagen(String img) {
+    private Bitmap VerImagen(String img) {
         byte[] decodedString = Base64.decode(img, Base64.DEFAULT);
         bitmapGlobal = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        return bitmapGlobal;
     }
 }
