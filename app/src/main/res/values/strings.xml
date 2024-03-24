@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Tarea2_3</string>
+    <string name="title_listitems">Title For List Items</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Laoreet non curabitur gravida arcu ac tortor dignissim convallis aenean.</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="more">More</string>
+    <string name="share">Share</string>
 </resources>
