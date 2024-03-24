@@ -8,9 +8,26 @@
 
     <Button
         android:id="@+id/btnNuevo"
-        android:layout_width="320dp"
-        android:layout_height="54dp"
+        android:layout_width="345dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="272dp"
         android:text="Nuevo"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="249dp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLista"
+        android:layout_width="345dp"
+        android:layout_height="59dp"
+        android:text="Lista"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNuevo"
+        app:layout_constraintVertical_bias="0.111" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
