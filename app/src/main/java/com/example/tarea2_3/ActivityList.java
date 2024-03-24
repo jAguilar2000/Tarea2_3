@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -32,6 +33,9 @@ public class ActivityList extends AppCompatActivity {
         listfotos = (ListView) findViewById(R.id.list_item);
 
         ObtenerInfo();
+
+        ArrayAdapter adp = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Arreglo);
+        listfotos.setAdapter(adp);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +43,8 @@ public class ActivityList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     private void ObtenerInfo() {
